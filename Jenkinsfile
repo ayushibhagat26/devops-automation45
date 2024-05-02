@@ -35,7 +35,7 @@ pipeline {
             steps {
                 script {
                     sh 'docker pull ayushbhagat/devops-integration'
-                    sh 'docker run -d -p 9091:8080 ayushbhagat/devops-integration'
+                    sh 'docker run -d -p 9092:8080 ayushbhagat/devops-integration'
                 }
             }
         }
