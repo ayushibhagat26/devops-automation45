@@ -17,6 +17,14 @@ pipeline {
                 }
             }
         }
+
+        stage('Scan Docker image') {
+            steps {
+                script {
+                    sh 'trivy image ayushbhagat/devops-integration'
+                }
+            }
+        }
         stage('Push image to Hub'){
             steps{
                 script{
