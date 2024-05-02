@@ -1,9 +1,6 @@
 pipeline {
     agent any
-    environment {
-        TRIVY_HOME = '/tmp' // Set Trivy home directory to /tmp
-        TRIVY_DATA_DIR = '/tmp' // Set Trivy data directory to /tmp
-    }
+    
     tools{
         maven 'maven_3_8_7'
     }
@@ -22,15 +19,7 @@ pipeline {
             }
         }
 
-        stage('Scan Docker image') {
-            steps {
-                script {
-                    dir('/tmp') { // Execute Trivy command within /tmp directory
-                        sh 'trivy image --no-progress ayushbhagat/devops-integration'
-                    }
-                }
-            }
-        }
+        
         stage('Push image to Hub'){
             steps{
                 script{
