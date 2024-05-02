@@ -1,5 +1,8 @@
 pipeline {
     agent any
+    environment {
+        TRIVY_HOME = '/tmp' // Set Trivy home directory to /tmp
+    }
     tools{
         maven 'maven_3_8_7'
     }
