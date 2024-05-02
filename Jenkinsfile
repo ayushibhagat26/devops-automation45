@@ -28,6 +28,13 @@ pipeline {
                 }
             }
         }
-        
+        stage('Run Docker image') {
+            steps {
+                script {
+                    sh 'docker pull ayushbhagat/devops-integration'
+                    sh 'docker run -d -p 9090:8080 ayushbhagat/devops-integration'
+                }
+            }
+        }
     }
 }
